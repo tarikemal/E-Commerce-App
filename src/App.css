@@ -1,38 +1,194 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  width: 70vw;
+  margin: auto;
+  margin-top: 2rem;
+  display: grid;
+
+  /* grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr; */
+  grid-template-areas:
+    "brands phones phones"
+    "prices phones phones"
+    "prices phones phones";
+  grid-template-columns: 0.65fr 2fr;
+  grid-gap: 1rem 2rem;
+  /*grid-template-rows: 400px 400px 1fr; */
+}
+.header-container {
+  background: grey;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70vw;
+  margin: auto;
+  padding: 0.8rem 0;
+}
+.header a {
+  text-decoration: none;
+  color: black;
+}
+
+.cart-items-counter span {
+  padding: 0.2rem;
+}
+
+.brands {
+  grid-area: brands;
+}
+
+.filter {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+.filter p {
+  margin-left: 8px;
+}
+
+input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+}
+
+.brands h2 {
+  padding: 0.7rem;
+  background-color: grey;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.price-filters {
+  grid-area: prices;
+  grid-row: 2/3;
+}
+
+.price-filters-heading {
+  padding: 0.7rem;
+  background-color: grey;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.price-filters-heading p {
+  cursor: pointer;
+}
+.filter {
+  border: 1px solid;
+}
+.phones {
+  grid-area: phones;
+  display: grid;
+}
+.change-layout {
+  background-color: grey;
+  padding: 1rem;
+  text-align: right;
+}
+.change-layout p {
+  padding-right: 20px;
+}
+.phones-container {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.2rem;
+}
+.phone-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.phone-item img {
+  text-align: center;
+}
+.phone-item * {
+  margin: 3px;
+}
+.phone-item a {
+  text-decoration: none;
+}
+.phone-item .add-to-cart-btn {
+  text-align: center;
+  margin: 3rem 2rem 1rem 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.shipping-cart-header {
+  background-color: grey;
+  padding: 0.5rem;
+}
+.cart-items {
+  width: 70vw;
+  margin: auto;
+  margin-top: 2rem;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+.cart-item-info {
+  margin-left: 2.3rem;
+}
+.cart-item * {
+  margin-right: 1rem;
+}
+.cart-item img {
+  width: 80px;
+  height: 130px;
+}
+input[type="number"] {
+  width: 50px;
+  height: 30px;
+}
+.cart-item-amount-info {
+  display: flex;
+  margin-left: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 992px) {
+  .container {
+    display: flex;
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+  .change-layout {
+    display: none;
+  }
+  .phones-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .phones {
+    display: flex;
+    justify-content: center;
   }
 }
