@@ -54,21 +54,24 @@ export function PriceFilters({
         <h2>Price</h2>
         {priceFilterUsed && <p onClick={removeFilter}>Remove Filter</p>}
       </div>
-      {priceFilters.map((filter, index) => {
-        const checkBoxIndex = index;
 
-        return (
-          <div key={index} className="filter">
-            <input
-              name="filterByPrice"
-              type="checkbox"
-              ref={refs.current[index]}
-              onClick={(e) => filterPrices(e, checkBoxIndex)}
-            />
-            <p>{filter}</p>
-          </div>
-        );
-      })}
+      <div className="price-filters-container">
+        {priceFilters.map((filter, index) => {
+          const checkBoxIndex = index;
+
+          return (
+            <div key={index} className="filter">
+              <input
+                name="filterByPrice"
+                type="checkbox"
+                ref={refs.current[index]}
+                onClick={(e) => filterPrices(e, checkBoxIndex)}
+              />
+              <p>{filter}</p>
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 }

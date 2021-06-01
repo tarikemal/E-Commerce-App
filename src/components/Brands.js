@@ -22,18 +22,20 @@ export function Brands({ priceFilterUsed, index }) {
   return (
     <section className="brands">
       <h2>Brands</h2>
-      {brands.map((brand, index) => {
-        return (
-          <div key={index} className="filter">
-            <input
-              type="checkbox"
-              id={index}
-              onClick={(e) => filterBrands(e, brand)}
-            />
-            <p>{brand}</p>
-          </div>
-        );
-      })}
+      <div className="brands-container">
+        {brands.map((brand, index) => {
+          return (
+            <div key={index} className="filter">
+              <input
+                type="checkbox"
+                id={index}
+                onClick={(e) => filterBrands(e, brand)}
+              />
+              <p>{brand}</p>
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 }

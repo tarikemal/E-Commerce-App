@@ -22,20 +22,22 @@ export function CartItem({ item }) {
   };
 
   return (
-    <div style={{ border: "1px solid" }} className="cart-item">
-      <img src={item.images[0]} alt={item.title} />
+    <div className="cart-item">
+      <div className="cart-item-image">
+        <img src={item.images[0]} alt={item.title} />
+      </div>
       <div className="cart-item-info">
         <h2>{item.title}</h2>
         <p>{item.description}</p>
       </div>
       <div className="cart-item-amount-info">
-        <p>
+        <span>
           {item.price
             .toFixed(2)
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           $
-        </p>
+        </span>
         <input
           type="number"
           value={itemAmount}

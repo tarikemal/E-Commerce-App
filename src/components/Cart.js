@@ -15,12 +15,15 @@ export function Cart() {
         return <CartItem item={item} />;
       })}
 
-      <div>
-        {totalCost
-          .toFixed(2)
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-        $
+      <div className="cart-total-cost">
+        <p className="total-cost">
+          Total price:{" "}
+          {totalCost
+            .toFixed(2)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          $
+        </p>
       </div>
     </section>
   );

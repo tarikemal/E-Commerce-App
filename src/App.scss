@@ -1,0 +1,294 @@
+$break-point: 750px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-header-clr: #343a40;
+  --secondary-header-clr: rgba(0, 0, 0, 0.08);
+
+  --primary-btn-clr: #17a2b8;
+}
+
+body {
+  color: #000;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 1.1rem;
+  //font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.header-container {
+  background-color: var(--primary-header-clr);
+
+  a {
+    color: white !important;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0.7rem 0;
+
+    .cart-items-counter {
+      span + span {
+        margin-left: 7px;
+      }
+    }
+  }
+}
+
+.brands {
+  width: 90%;
+  margin: 3rem auto;
+  background-color: #fff;
+  border-radius: 5px;
+
+  h2 {
+    padding: 0.6rem 0 1rem 0.6rem;
+    font-size: 1.6rem;
+    background-color: var(--secondary-header-clr);
+  }
+
+  .brands-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.filter {
+  display: flex;
+  //   justify-content: center;
+  align-items: center;
+  border: 0.2px solid var(--secondary-header-clr);
+  padding: 1rem;
+
+  input {
+    margin-right: 7px;
+  }
+}
+
+.price-filters {
+  background-color: #fff;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 5px;
+
+  .price-filters-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--secondary-header-clr);
+    padding: 0.5rem 0.6rem;
+    border-bottom: 0.3px solid var(--secondary-header-clr);
+  }
+
+  .price-filters-container {
+    display: flex;
+  }
+
+  .price-filters-container > * {
+    flex-grow: 1;
+  }
+}
+
+.phones-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 90%;
+  margin: 3rem auto 0;
+
+  .phone-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 0.9em;
+    padding: 0 0.3rem;
+    border: 0.3px solid var(--secondary-header-clr);
+
+    & > * {
+      margin-top: 0.8rem;
+    }
+
+    .phone-item-title {
+      color: var(--primary-btn-clr);
+    }
+
+    img {
+      margin: 0 auto 1rem;
+    }
+
+    &:hover {
+      .add-to-cart-btn {
+        display: block;
+      }
+    }
+
+    .phone-item-description {
+      margin-bottom: 8rem;
+    }
+  }
+}
+
+.change-layout {
+  display: none;
+}
+
+.add-to-cart-btn {
+  position: absolute;
+  bottom: 1rem;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 75%;
+  padding: 0.5em;
+  font-size: 1rem;
+  background-color: var(--primary-btn-clr);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  letter-spacing: 0.9px;
+  display: none;
+  transition: display 3s ease-in-out;
+  cursor: pointer;
+}
+
+.cart-items {
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 3rem;
+
+  .shipping-cart-header {
+    background-color: var(--primary-header-clr);
+    color: #fff;
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+  .cart-item {
+    display: grid;
+    // flex-direction: column;
+    gap: 20px;
+
+    img {
+      margin: 1em auto;
+    }
+    .cart-item-info {
+      padding: 0 0.5rem;
+
+      h2 {
+        color: var(--primary-btn-clr);
+      }
+    }
+
+    .cart-item-amount-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding: 0 2rem;
+      text-align: left;
+
+      & > button {
+        padding: 0.5rem 1rem;
+        background-color: var(--primary-btn-clr);
+        border: none;
+        border-radius: 3px;
+      }
+
+      & > input {
+        width: 45px;
+      }
+    }
+  }
+
+  .cart-total-cost {
+    background-color: rgba(0, 0, 0, 0.05);
+    text-align: right;
+
+    .total-cost {
+      margin-right: 2rem;
+      padding: 1.7rem 0;
+    }
+  }
+}
+
+@media (min-width: $break-point) {
+  .cart-items {
+    max-width: 95%;
+
+    .cart-item {
+      display: flex;
+
+      align-items: center;
+      flex-direction: row;
+      padding: 1rem;
+      border: none;
+
+      .cart-item-image {
+        height: 135px;
+        width: 70px;
+      }
+
+      .cart-item-amount-info {
+        flex-grow: 1;
+        //margin-left: 3rem;
+        justify-content: flex-end;
+        gap: 30px;
+      }
+    }
+  }
+
+  .container {
+    width: 80%;
+    margin: 1rem auto 0;
+    display: grid;
+    grid-template-areas:
+      "brands phones phones"
+      "brands phones phones"
+      "prices phones phones";
+    grid-template-columns: 0.65fr 2fr;
+    grid-auto-rows: 570px;
+
+    .brands {
+      grid-area: brands;
+
+      .brands-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .price-filters {
+      grid-area: prices;
+      grid-row: 2/3;
+
+      .price-filters-container {
+        display: grid;
+      }
+    }
+
+    .phones-container {
+      grid-area: phones;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

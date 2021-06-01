@@ -19,20 +19,18 @@ export function Phones() {
       <div className="phones-container">
         {products.map((phone) => {
           return (
-            <div
-              key={phone.id}
-              style={{ border: "1px solid" }}
-              className="phone-item"
-            >
+            <div key={phone.id} className="phone-item">
               <Link to={`/products/${phone.id}`}>
                 <img
-                  style={{ width: "190px", height: "220px" }}
+                  // style={{ width: "190px", height: "220px" }}
                   src={phone.images[0]}
                   alt={phone.title}
                 />
               </Link>
               <p>
-                <Link to={`/products/${phone.id}`}>{phone.title}</Link>
+                <Link className="phone-item-title" to={`/products/${phone.id}`}>
+                  {phone.title}
+                </Link>
               </p>
               <h3>
                 $
@@ -41,7 +39,7 @@ export function Phones() {
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               </h3>
-              <p>{phone.description}</p>
+              <p className="phone-item-description">{phone.description}</p>
               <button
                 onClick={() => addCartItem(phone.id)}
                 className="add-to-cart-btn"

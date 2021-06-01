@@ -9,15 +9,18 @@ export const productReducer = (state = initState, { type, payload }) => {
   switch (type) {
     case ActionTypes.SET_DISPLAYED_PRODUCTS_BY_BRAND:
       if (payload.isChecked) {
-        const newProducts = phones.filter(
+        let newProducts = phones.filter(
           (phone) => payload.brand.toLowerCase() === phone.brand.toLowerCase()
         );
 
         if (state.products.length === phones.length) {
           return { ...state, products: newProducts };
         }
-        //let tmp =
-        return { ...state, products: [...state.products, ...newProducts] };
+
+        const tmp = [...state.products, ...newProducts];
+        newProducts = phones.filter((product) => tmp.includes(product));
+
+        return { ...state, products: newProducts };
       } else {
         const displayedPhones = state.products;
         const newProducts = displayedPhones.filter(

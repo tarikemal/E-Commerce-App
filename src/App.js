@@ -1,22 +1,9 @@
-import "./App.css";
-import { brands, priceFilters, phones } from "./data.js";
-import { useState, useEffect, useRef } from "react";
+// import "./App.css";
+import { useState } from "react";
 import React from "react";
+import "./App.scss";
 
-import numeral from "numeral";
 import { Switch, Route, Link, Redirect, useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-
-import {
-  setDisplayedProductsByBrand,
-  setDisplayedProductsByPrice,
-  removePriceFilter,
-} from "./redux/actions/product-actions";
-import {
-  setCartItems,
-  deleteCartItem,
-  changeTotalCost,
-} from "./redux/actions/cart-actions";
 
 import { Brands } from "./components/Brands";
 import { Cart } from "./components/Cart";
